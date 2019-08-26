@@ -18,14 +18,9 @@ export class Bands extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const artist = this.state.value;
-        // if (artist.length < 1){
-        //     document.getElementById('userInput').classList.add('error');
-        //     setTimeout( () => document.getElementById('userInput').classList.remove('error'), 1000)
-        // } else {
         this.getArtistInfo(artist);
         this.getEventData(artist);
         this.setState({ value: '', loading: true});
-        // }
     }
 
     getArtistInfo = (artist) => {
@@ -81,13 +76,13 @@ export class Bands extends Component {
                 <h5>{this.state.loading ? "Loading..." : ''}</h5>
                 <p>{this.state.error ? "No info found" : ''}</p>
                 <h2>{this.state.artistData.name}</h2>
-               {this.state.artistData && <img className="artist-img" src={this.state.artistData.image_url} alt={this.state.artistData.name && "photo of" + this.state.artistData.name} /> }
-                <p>{this.state.artistData.name && "upcoming events: " + this.state.artistData.upcoming_event_count}</p>
+               {this.state.artistData.name && <img className="artist-img" src={this.state.artistData.image_url} alt={this.state.artistData.name && "photo of" + this.state.artistData.name} /> }
+                {/*<p>{this.state.artistData.name && "upcoming events: " + this.state.artistData.upcoming_event_count}</p>
                 {this.state.eventData.venue && <p>{this.state.artistData.upcoming_event_count > 0 ? 
                 "next show: " + this.state.eventData.venue.name + " in " 
                 + this.state.eventData.venue.city + ", " + this.state.eventData.venue.region + " "
                 + this.state.eventData.venue.country : ''}</p>}
-                {this.state.eventData.lineup && <p>{this.state.artistData.upcoming_event_count > 0 ?  "Lineup: " + this.state.eventData.lineup.join(', ') : ''}</p>}
+                {this.state.eventData.lineup && <p>{this.state.artistData.upcoming_event_count > 0 ?  "Lineup: " + this.state.eventData.lineup.join(', ') : ''}</p>}*/}
             </div>
         )
     }
